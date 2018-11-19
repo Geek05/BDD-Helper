@@ -1,0 +1,52 @@
+Concordian: BDD Framework
+
+It is 4 step process:
+	1.Discussing
+	2.Documenting
+	3.Instrumenting
+	4.Coding
+
+
+1.Discussing: 
+			Collaboratively specifying examples.
+			Before developing a new feature, discussing behavioural examples helps teams to build the feature right first time. Issues and requirements gaps are detected and misunderstandings corrected before the team starts developing code and tests.
+			
+	a: Acceptance Criteria and Examples:
+	   When discussing a feature, it helps to describe the "desired behaviour" in general terms as "acceptance criteria", along with specific "examples".
+	   
+	   For instance, 
+				Acceptance criteria:
+						"All orders of $50 or over receive free shipping". 
+						In simple (order.value > 50$) ? shipping = free : pay
+				Examples: 
+						"a $49.99 order has to pay for shipping” 
+						"a $50.00 order has free shipping"
+
+	   Note: "Each example relates to an acceptance criterion" and "Each acceptance criterion has corresponding examples".
+	   
+	b: Structure / Anatomy of an Example:
+	   For each "example", you should consider the:
+	   1.Context
+	   2.Action
+	   3.Outcome:
+
+	   1. Context describes the preconditions that are in place for the example to take place. You should consider not only the application state, but also any relevant global conditions such as the day of week, or the location of the user.
+	   2. Action describes the event you are testing.
+	   3. Outcome describes the expected postconditions that should hold true.
+	   
+	   When discussing "examples", we need to consider the context (preconditions), actions and outcomes for each example. 
+	   we are working on a system for creating marketing mailshots. We want to have the first name and last name of the customer. Unfortunately the customer data that we are supplied only contains "full names", so we will need to "split" them.
+	   In this example, the "context" is the name "Jane Smith", the "action" is "split" and the "outcomes" are the "first name Jane" and "last name Smith".
+	   
+	c. Exploring examples:
+	
+	   "conversational patterns"
+	   1. Context Questioning
+		  Asking "Is there any other 'context' which, when this event happens, will produce a different outcome?" 
+		  Helps us think of new scenarios.
+		  example: "John dave smith" is context, and "action" is "split" what is the outcome ?
+
+	   2.Outcome Questioning
+		  Asking "Given this context, when this event happens, is there 'another outcome' that’s important? Something we missed, perhaps?" 
+		  Helps us find other things that our software should do.
+		  Example: Does split of user name trigger anything else apart from split operation ? like audit and do we need to check audit?
