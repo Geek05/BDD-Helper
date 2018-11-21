@@ -1,5 +1,7 @@
 Concordian: BDD Framework
 
+Ref: https://concordion.org/tutorial/java/markdown/
+
 It is 4 step process:
 	1.Discussing
 	2.Documenting
@@ -50,3 +52,51 @@ It is 4 step process:
 		  Asking "Given this context, when this event happens, is there 'another outcome' that’s important? Something we missed, perhaps?" 
 		  Helps us find other things that our software should do.
 		  Example: Does split of user name trigger anything else apart from split operation ? like audit and do we need to check audit?
+
+2.Documenting (specification)
+	This is known as "specification".
+	Small Note:
+		The # characters at the start of the line create headings, where the heading level/Size is determined by the number of # characters.
+		The lines without a # character are treated as plain paragraphs.
+
+3.Instrumenting
+	To make the "specification" executable, it must be "instrumented with commands". The instrumentation is processed by the "fixture" code.
+	
+	The first step is to select the "words" in the "example" that define the "context" (preconditions), "actions" and "outcomes". 
+	Example, 
+			"context" is the name "Jane Smith"
+			"action" is broken 
+			"outcomes" are the 'first name' "Jane" and 'last name' "Smith". 
+
+	Markdown Syntax:
+	The full name [Jane Smith]() is [broken]() into first name [Jane]() and last name [Smith]().
+	
+	
+	markdown syntax:
+	1. __bold text__
+	2. Links
+		a. [links](http://wikipedia.org)
+		b. reference type links:
+			[value][id]
+			[id]: - "http://wikipedia.org"
+	3. *emphasis*
+	4. **strong**
+	5. * list
+	6. >block quote
+	7. code (4 spaces indent)
+	
+	Next, we add "Concordion commands" to the "links"
+	
+	Example MD:
+	The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
+	into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
+	
+	Summary of this above command is:
+		Setting our "context", by setting a new variable #name to the value Jane Smith
+		Executing our "action", by executing the method split() with the variable #name and returning the value #result
+		Verifying our "outcomes", by checking whether #result.firstName is set to Jane, and #result.lastName is set to Smith.
+
+4. Coding
+   AKA - "fixture"
+   Create some code, called a "fixture", that 'links' the "instrumented specification" with the system under test.
+   
