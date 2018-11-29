@@ -1,0 +1,51 @@
+Sample XML:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<bookstore>
+		<book>
+			<title lang="en">Harry Potter</title>
+			<price>29.99</price>
+			</book>
+		<book>
+			<title lang="en">Learning XML</title>
+			<price>39.95</price>
+		</book>
+		<book>
+			<title lang="js">Learning JSON</title>
+			<price>39.95</price>
+		</book>
+		<book>
+			<title lang="uk">Learning English</title>
+			<price>39.95</price>
+		</book>
+		<book>
+			<title lang="js">Learning Java Script</title>
+			<price>39.95</price>
+		</book>
+	</bookstore>
+	
+Functions:
+	1. last()
+	
+	2. position()
+
+
+Xpath Axis:
+
+	Syntax: axisname::node		
+	example: //td[text()='Banana']/ancestor:tr
+
+	Ancestor: 
+		e ancestor axis selects all ancestors element (grandparent, parent, etc.)
+		Table: http://toolsqa.com/automation-practice-table/#
+		
+		Problem: find the "Rank" of the given "Country"
+		
+		Xpath:  //table//td[text()='Taiwan']/ancestor::tr/td[5]
+		Explanation: 
+					a. First find the <td> or country named 'Taiwan'
+					   xpath = //table//td[text()='Taiwan']
+					b. Now we got the <td>, lets find the row <tr> of that <td>
+					   xpath= //table//td[text()='Taiwan']/ancestor::tr
+					c. Now we got the data residing <tr> row. Lets manually find in which column/index the country "Rank" resides.
+					   xpath= //table/td[text()='Taiwan']/ancestor::tr/td[5]

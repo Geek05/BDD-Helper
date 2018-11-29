@@ -1,3 +1,32 @@
 https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
 
 git --version
+
+Basic Configurations:
+	git config --global user.name "YOUR_USERNAME"
+	git config --global user.email "your_email_address@example.com"
+	
+	Check Info:
+	git config --global --list
+	
+New Repository:
+	git init
+	git remote add origin https://github.com/Geek05/DesignPatterns.git
+	git push -u origin master
+
+Add and Commit to local reposotory:
+	git add .
+	git add FILE OR FOLDER
+	git commit -m "COMMENT TO DESCRIBE THE INTENTION OF THE COMMIT"
+	
+	git status
+
+Undo operations:
+	Undo/Unstage all changes that have been added to the staging area
+		git reset .
+	Undo most recent commit to git
+		git reset HEAD~1
+
+Commit/Send changes to gitlab.com:
+	Syntax: git push REMOTE NAME-OF-BRANCH
+	Example: git push origin master
