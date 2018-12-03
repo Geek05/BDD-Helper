@@ -11,6 +11,8 @@ Basic Configurations:
 	
 New Repository:
 	git init
+	git add README.md
+	git commit -m "first commit"
 	git remote add origin https://github.com/Geek05/DesignPatterns.git
 	git push -u origin master
 
@@ -21,12 +23,16 @@ Add and Commit to local reposotory:
 	
 	git status
 
+Add and Commit to existing remote reposotory:
+	git remote add origin https://github.com/Geek05/abc.git
+	git push -u origin master
+
+Commit/Send changes to gitlab.com:
+	Syntax: git push REMOTE NAME-OF-BRANCH
+	Example: git push origin master
+
 Undo operations:
 	Undo/Unstage all changes that have been added to the staging area
 		git reset .
 	Undo most recent commit to git
 		git reset HEAD~1
-
-Commit/Send changes to gitlab.com:
-	Syntax: git push REMOTE NAME-OF-BRANCH
-	Example: git push origin master
