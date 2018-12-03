@@ -19,7 +19,7 @@ It is 4 step process:
 	   For instance, 
 				Acceptance criteria:
 						"All orders of $50 or over receive free shipping". 
-						In simple (order.value > 50$) ? shipping = free : pay
+						In simple (order.value >= 50$) ? shipping = free : pay
 				Examples: 
 						"a $49.99 order has to pay for shipping” 
 						"a $50.00 order has free shipping"
